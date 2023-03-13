@@ -1,19 +1,29 @@
 <?php
 
-  $receiving_email_address = 'melkamu372@gmail.com';
-  if( file_exists($php_email_form = '../assets/vendor/php-email-form/phpmailer/src/PHPMailer.php')) {
-    include( $php_email_form );
-  } else {
-    die( 'Unable to load the "PHP Email Form" Library!');
-  }
+//   $receiving_email_address = 'melkamu372@gmail.com';
+//   if( file_exists($php_email_form = '../assets/vendor/php-email-form/phpmailer/src/PHPMailer.php')) {
+//     include( $php_email_form );
+//   } else {
+//     die( 'Unable to load the "PHP Email Form" Library!');
+//   }
 
-  $contact = new PHP_Email_Form;
-  $contact->ajax = true;
+//   $contact = new PHP_Email_Form;
+//   $contact->ajax = true;
   
-  $contact->to = $receiving_email_address;
-  $contact->from_name = $_POST['name'];
-  $contact->from_email = $_POST['email'];
-  $contact->subject = $_POST['subject'];
+//   $contact->to = $receiving_email_address;
+//   $contact->from_name = $_POST['name'];
+//   $contact->from_email = $_POST['email'];
+//   $contact->subject = $_POST['subject'];
+
+   $to      = 'bifacon@bifacon.com';
+   $subject = 'the subject';
+   $message = 'hello';
+   $headers = 'From: melkamu72@gmail.com'       . "\r\n" .
+              'Reply-To: melkamu72@gmail.com' . "\r\n" .
+              'X-Mailer: PHP/' . phpversion();
+
+    mail($to, $subject, $message, $headers);
+
 
   // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
   /*

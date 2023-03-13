@@ -1,5 +1,5 @@
 <?php
-
+echo "contact";
 //   $receiving_email_address = 'melkamu372@gmail.com';
 //   if( file_exists($php_email_form = '../assets/vendor/php-email-form/phpmailer/src/PHPMailer.php')) {
 //     include( $php_email_form );
@@ -15,16 +15,40 @@
 //   $contact->from_email = $_POST['email'];
 //   $contact->subject = $_POST['subject'];
 
-   $to      = 'bifacon@bifacon.com';
-   $subject = 'the subject';
-   $message = 'hello';
-   $headers = 'From: melkamu72@gmail.com'       . "\r\n" .
-              'Reply-To: melkamu72@gmail.com' . "\r\n" .
-              'X-Mailer: PHP/' . phpversion();
 
-    mail($to, $subject, $message, $headers);
+//   $to      = 'tesfasebsibacew@gmail.com';
+//   $subject = 'the subject';
+//   $message = 'hello test';
+//   $headers = 'From: bifacon@bifacon.com'       . "\r\n" .
+//               'Reply-To: info@bifacon.com' . "\r\n" .
+//               'X-Mailer: PHP/' . phpversion();
+              
+              
+            //   echo 
 
+    // echo mail($to, $subject, $message, $headers);
+    
+    
+    $to = 'tesfasebsibacew@gmail.com';
+    $subject = 'new test' ;
+    $body = "<div> hi hi .. </div>";
 
+    $headers = 'From: info@bifacon.com' . "\r\n" ;
+    $headers .='Reply-To: '. $to . "\r\n" ;
+    $headers .='X-Mailer: PHP/' . phpversion();
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-type: text/html; charset=iso-8859-1\r\n";   
+    if(mail($to, $subject, $body,$headers)) {
+      echo('<br>'."Email Sent. ".'</br>');
+      } 
+      else 
+      {
+      echo("<p>Email Message delivery failed...</p>");
+      }
+  
+    // echo "<br>mail sent ...";
+    
+    
   // Uncomment below code if you want to use SMTP to send emails. You need to enter your correct SMTP credentials
   /*
   $contact->smtp = array(
@@ -35,9 +59,9 @@
   );
   */
 
-  $contact->add_message( $_POST['name'], 'From');
-  $contact->add_message( $_POST['email'], 'Email');
-  $contact->add_message( $_POST['message'], 'Message', 10);
+//   $contact->add_message( $_POST['name'], 'From');
+//   $contact->add_message( $_POST['email'], 'Email');
+//   $contact->add_message( $_POST['message'], 'Message', 10);
 
-  echo $contact->send();
+//   echo $contact->send();
 ?>
